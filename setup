@@ -9,7 +9,7 @@ git clone git@github.com:microsoft/vscode || true
 ./clean
 cd vscode
 git fetch --tags
-git checkout 1.21.1 -f
+git checkout 1.22.1 -f
 cd ..
 
 dl_link=https://go.microsoft.com/fwlink/?LinkID=620884
@@ -19,7 +19,7 @@ fi
 tar --strip-components=1 -xf vscode-official.tar.gz VSCode-linux-x64/resources/app/resources/linux/code.png VSCode-linux-x64/resources/app/product.json
 
 if [[ ! -d "rootfs" ]]; then
-  sudo qemu-debootstrap --arch=armhf --variant=minbase xenial rootfs
+  sudo qemu-debootstrap --arch=armhf --variant=minbase trusty rootfs
 fi
 sudo mount --bind /dev/pts $(pwd)/rootfs/dev/pts
 sudo mount --bind /proc $(pwd)/rootfs/proc
